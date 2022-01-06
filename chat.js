@@ -12,24 +12,6 @@ var chat = new (function () {
   var _events = {};
   this.getChatHistory = getChatHistory;
 
-  function getChatListElement(chats = []) {
-    (chatContainer = document.createElement("div")),
-      (chatElement = document.createElement("ul")),
-      (numberOfListItems = chats.length),
-      chatItem,
-      i;
-
-    document.getElementsByTagName("body")[0].appendChild(chatContainer);
-    chatContainer.appendChild(chatElement);
-
-    for (i = 0; i < numberOfListItems; ++i) {
-      chatItem = document.createElement("li");
-      chatItem.innerHTML = chats[i];
-      chatElement.appendChild(chatItem);
-    }
-    return chatContainer;
-  }
-
   function getChatHistory(callback) {
     var d = new Date();
     d.setTime(d.getTime() - 200000);
@@ -72,7 +54,7 @@ var chat = new (function () {
     });
 
     if (typeof callback == "function") {
-      setTimeout(callback(getChatListElement(chats)), 1000);
+      setTimeout(callback(chats), 1000);
     }
   }
 
@@ -129,7 +111,13 @@ var chat = new (function () {
     });
 
     // Listen for the event
-    //chat.addEventListener('chatreceived', function (e) { console.log(e.detail) }, false);
+    // chat.addEventListener(
+    //   "chatreceived",
+    //   function (e) {
+    //     console.log(e.detail);
+    //   },
+    //   false
+    // );
 
     // Dispatch the event.
     raiseEvent("chatreceived", {
@@ -153,12 +141,55 @@ var chat = new (function () {
   }
 })();
 
-$(function () {
-  function loadData(chats) {
-    console.log(chats);
+function getChatListElement(chats = []) {
+  let chatContainer = document.createElement("div");
+  let chatElement = document.createElement("ul");
+  let numberOfListItems = chats.length;
+  let chatItem;
 
-    $("#chatHistory").append(chats[0].message);
+  document.getElementById("chatHistory").appendChild(chatContainer);
+  chatContainer.appendChild(chatElement);
+
+  for (let i = 0; i < numberOfListItems; ++i) {
+    chatItem = document.createElement("li");
+    chatItem.innerHTML = chats[i].message;
+    chatElement.appendChild(chatItem);
   }
+  return chatContainer;
+}
 
-  chat.getChatHistory(loadData);
-});
+// Name and Email validation Function.
+function validation() {
+  var value = document.getElementById("chatInput").value;
+  if (value === "") {
+    alert("Please fill all fields...!!!!!!");
+    return false;
+  } else {
+    return true;
+  }
+}
+
+function submit() {
+  var message = document.getElementById("chatInput").value;
+  if (validation()) {
+    var form = document.getElementById("chat_form");
+    form.submit();
+    chat.sendChat(message);
+    alert(value + " Form Submitted Successfully......");
+  }
+}
+
+/////////////////////////////////////////////////////////////////////////////
+var callback = function () {
+  // DOM is fully loaded
+  chat.getChatHistory(getChatListElement);
+};
+
+if (
+  document.readyState === "complete" ||
+  (document.readyState !== "loading" && !document.documentElement.doScroll)
+) {
+  callback();
+} else {
+  document.addEventListener("DOMContentLoaded", callback);
+}
