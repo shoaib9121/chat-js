@@ -22,6 +22,7 @@
 .img_cont_msg {
   height: 40px;
   width: 40px;
+  min-width: 40px;
 }
 .offline {
   background-color: #c23616 !important;
@@ -35,13 +36,7 @@
   padding: 10px;
   position: relative;
 }
-.msg_time {
-  position: absolute;
-  left: 0;
-  bottom: -15px;
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 10px;
-}
+
 .user_img_msg {
   border-radius: 50%;
   height: 40px;
@@ -57,10 +52,17 @@
   padding: 10px;
   position: relative;
 }
-.msg_time_send {
+.msg_time {
   position: absolute;
-  right: 0;
-  bottom: -15px;
+  left: 0;
+  bottom: -20px;
   color: rgba(255, 255, 255, 0.5);
   font-size: 10px;
+  min-width: 150px;
+
+  &.sender {
+    right: 0;
+    left: auto;
+    text-align: right;
+  }
 }
