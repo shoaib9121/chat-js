@@ -1,6 +1,6 @@
 import "./style.scss";
 
-const CardHeader = () => {
+const CardHeader = ({ chatLength }) => {
   return (
     <div className="card-header msg_head">
       <div className="d-flex bd-highlight">
@@ -13,7 +13,7 @@ const CardHeader = () => {
         </div>
         <div className="user_info">
           <span>Chat with PowerFront</span>
-          <p>1767 Messages</p>
+          <p>{chatLength} Messages</p>
         </div>
       </div>
     </div>

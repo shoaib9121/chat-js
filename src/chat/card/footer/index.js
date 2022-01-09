@@ -1,9 +1,16 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./style.scss";
 
 const CardFooter = ({ onSubmit }) => {
   const [message, setMessage] = useState([]);
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      setMessage(e.target.value);
+      onSubmit(message);
+      setMessage("");
+    }
+  };
   return (
     <div className="card-footer">
       <form
@@ -12,23 +19,28 @@ const CardFooter = ({ onSubmit }) => {
         name="chat_form"
         id="chat_form"
         className="form_class"
+        onSubmit={(e) => e.preventDefault()}
       >
         <div className="input-group">
-          <textarea
+          <input
             name=""
             value={message}
-            className="form-control type_msg"
-            placeholder="Type your message..."
+            className="form-control type_msg msg_height"
+            placeholder="Enter your message..."
             onChange={(e) => setMessage(e.target.value)}
+            onKeyDown={(e) => handleKeyDown(e)}
           />
-          <div className="input-group-append">
+          {/* <div className="input-group-append">
             <span
-              className="input-group-text send_btn"
-              onClick={() => onSubmit(message)}
+              className="input-group-text send_btn msg_height"
+              onClick={() => {
+                onSubmit(message);
+                setMessage("");
+              }}
             >
               Send
             </span>
-          </div>
+          </div> */}
         </div>
       </form>
     </div>
