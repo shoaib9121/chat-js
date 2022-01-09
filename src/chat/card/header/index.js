@@ -1,8 +1,8 @@
 import "./style.scss";
 
-const CardHeader = ({ chatLength }) => {
+const CardHeader = ({ chatLength, toggleChat }) => {
   return (
-    <div className="card-header msg_head">
+    <div className="card-header msg_head" onClick={toggleChat}>
       <div className="d-flex bd-highlight">
         <div className="img_cont">
           <img

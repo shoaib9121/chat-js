@@ -9,7 +9,9 @@ const Chat = () => {
         <div id="chatHistory"></div>
         <div id="liveChat"></div>
       </div> */}
-      <Card />
+      <div className="cardWrapper">
+        <Card />
+      </div>
     </div>
   );
 };

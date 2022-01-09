@@ -1,3 +1,9 @@
 .chat {
   text-align: left;
+
+  .cardWrapper {
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+  }
 }

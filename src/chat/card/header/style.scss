@@ -1,19 +1,19 @@
 .card-header {
-  padding: 0.75rem 1.25rem;
+  padding: 0.6rem 1.25rem;
   margin-bottom: 0;
   background-color: rgba(0, 0, 0, 0.03);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 15px 15px 0 0 !important;
-  border-bottom: 0 !important;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.125);
+  border-radius: 15px 15px 0 0;
+  cursor: pointer;
 
   .online_icon {
     position: absolute;
-    height: 15px;
-    width: 15px;
+    height: 7px;
+    width: 7px;
     background-color: #4cd137;
     border-radius: 50%;
-    bottom: -4px;
-    right: 0px;
+    bottom: 0px;
+    right: -4px;
     border: 1.5px solid white;
   }
 }

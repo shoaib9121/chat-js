@@ -30,7 +30,7 @@ const CardFooter = ({ onSubmit }) => {
             onChange={(e) => setMessage(e.target.value)}
             onKeyDown={(e) => handleKeyDown(e)}
           />
-          {/* <div className="input-group-append">
+          <div className="input-group-append">
             <span
               className="input-group-text send_btn msg_height"
               onClick={() => {
@@ -40,7 +40,7 @@ const CardFooter = ({ onSubmit }) => {
             >
               Send
             </span>
-          </div> */}
+          </div>
         </div>
       </form>
     </div>

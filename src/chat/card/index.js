@@ -16,6 +16,7 @@ const Card = () => {
   const [message, setMessage] = useState([]);
   const [holdBotReply, setHoldBotReply] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
+  const [isChatOpen, setIsChatOpen] = useState(false);
   const delay = 2000;
 
   useEffect(async () => {
@@ -70,8 +71,11 @@ const Card = () => {
   };
 
   return (
-    <div className="card">
-      <CardHeader chatLength={chatItems.length} />
+    <div className={`card ${isChatOpen && "toggle"}`}>
+      <CardHeader
+        chatLength={chatItems.length}
+        toggleChat={() => setIsChatOpen(!isChatOpen)}
+      />
       <CardBody chatItems={chatItems} isTyping={isTyping} />
       <CardFooter onSubmit={handleOnSubmit} />
     </div>

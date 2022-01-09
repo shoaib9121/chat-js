@@ -1,11 +1,16 @@
 .card {
   display: flex;
   flex-direction: column;
-  height: 650px;
-  max-width: 50%;
-  margin: auto;
-  border-radius: 15px !important;
+  height: 450px;
+  width: 450px;
+  border-radius: 15px 15px 0 0;
   background-color: rgba(0, 0, 0, 0.4) !important;
+  transition: 0.2s;
+  transform: translateY(0%);
+
+  &.toggle {
+    transform: translateY(87%);
+  }
 }
 
 .user_info {
@@ -13,12 +18,13 @@
   margin-bottom: auto;
   margin-left: 15px;
   span {
-    font-size: 20px;
+    font-size: 16px;
     color: white;
+    font-weight: bold;
   }
   p {
-    font-size: 14px;
-    margin-top: 5px;
+    font-size: 13px;
+    margin-top: 2px;
     margin-bottom: 0;
     color: rgba(255, 255, 255, 0.6);
   }

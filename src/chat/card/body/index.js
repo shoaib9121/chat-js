@@ -23,7 +23,7 @@ const CardBody = ({ chatItems, isTyping = false }) => {
             className="rounded-circle user_img_msg"
           />
         </div>
-        <div className="msg_cotainer">
+        <div className="msg msg_cotainer">
           {item.message}
           <span className="msg_time">{timeAgo(item.datetime)}</span>
         </div>
@@ -34,7 +34,7 @@ const CardBody = ({ chatItems, isTyping = false }) => {
   const renderBotMessage = (item = {}) => {
     return (
       <div className="d-flex justify-content-end mb-4">
-        <div className="msg_cotainer_send">
+        <div className="msg msg_cotainer_send">
           {item.message}
           <span className="msg_time sender">{timeAgo(item.datetime)}</span>
         </div>
