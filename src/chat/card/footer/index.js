@@ -6,10 +6,17 @@ const CardFooter = ({ onSubmit }) => {
   const [message, setMessage] = useState([]);
 
   const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      setMessage(e.target.value);
-      onSubmit && onSubmit(DOMPurify.sanitize(message));
+    let value = e.target.value;
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      setMessage(value);
+      if (value.indexOf("\n") !== -1) {
+        value = value.replaceAll(/\n/g, "<br/>");
+      }
+      setMessage(value);
+      onSubmit && onSubmit(DOMPurify.sanitize(value));
       setMessage("");
+      return false;
     }
   };
   return (
@@ -23,7 +30,7 @@ const CardFooter = ({ onSubmit }) => {
         onSubmit={(e) => e.preventDefault()}
       >
         <div className="input-group">
-          <input
+          <textarea
             name=""
             data-testid="message-input"
             value={message}

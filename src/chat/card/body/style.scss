@@ -59,6 +59,37 @@
     right: 20px;
     bottom: auto;
     font-size: 15px;
+
+    .shape {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      animation: blinker 0.5s linear infinite;
+      background-color: #dddddd;
+      margin-right: 5px;
+      display: inline-block;
+    }
+    .shape {
+      animation: blinker 1s linear infinite;
+    }
+    .shape {
+      animation: blinker 0.25s linear infinite;
+    }
+    .shape {
+      animation: blinker 2s linear infinite;
+    }
+
+    @keyframes blinker {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
   }
 }
 

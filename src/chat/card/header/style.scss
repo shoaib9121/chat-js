@@ -5,6 +5,7 @@
   border-bottom: 2px solid rgba(0, 0, 0, 0.125);
   border-radius: 15px 15px 0 0;
   cursor: pointer;
+  position: relative;
 
   .online_icon {
     position: absolute;
@@ -15,5 +16,23 @@
     bottom: 0px;
     right: -4px;
     border: 1.5px solid white;
+  }
+
+  .toggle_icon {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 20px;
+
+    &:hover {
+      background: rgb(0 0 0 / 15%);
+    }
   }
 }

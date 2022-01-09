@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { timeAgo, senderEnums } from "../../../utils";
+import { timeAgo, senderEnums, createMarkup } from "../../../utils";
 import "./style.scss";
 
 const CardBody = ({ chatItems = [], isTyping = false }) => {
@@ -24,7 +24,7 @@ const CardBody = ({ chatItems = [], isTyping = false }) => {
           />
         </div>
         <div className="msg msg_cotainer">
-          {item.message}
+          <span dangerouslySetInnerHTML={createMarkup(item.message)} />
           <span className="msg_time">{timeAgo(item.datetime)}</span>
         </div>
       </div>
@@ -54,7 +54,13 @@ const CardBody = ({ chatItems = [], isTyping = false }) => {
         chatItems.map((item, index) => {
           return <div key={index}> {renderChatMessage(item)} </div>;
         })}
-      {isTyping && <div className="is_typing">operator typing...</div>}
+      {isTyping && (
+        <div className="is_typing">
+          <span className="shape shape_1"></span>
+          <span className="shape shape_2"></span>
+          <span className="shape shape_3"></span>
+        </div>
+      )}
     </div>
   );
 };

@@ -83,3 +83,7 @@ export const timeAgo = (dateString) => {
 
   return `${yearsDiff} years ago`;
 };
+
+export const createMarkup = (message) => {
+  return { __html: message };
+};

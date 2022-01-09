@@ -32,11 +32,10 @@ const Card = () => {
           submitBotResponse(message);
         }, delay);
       }
-    }, delay);
+    }, 1000);
   }, [chatItems]);
 
   const handleOnSubmit = (message) => {
-    console.log(message);
     setMessage(message);
     let tempChatItems = [...chatItems];
     tempChatItems.push(messageInstance(message, senderEnums.VISITOR));
@@ -46,12 +45,14 @@ const Card = () => {
 
   const submitBotResponse = (message) => {
     let randomMessage;
-    if (message.indexOf("hello") !== -1 || message.indexOf("hi") !== -1) {
-      randomMessage = operatorGreetingChat();
-    } else if (message.indexOf("?") !== -1) {
-      randomMessage = operatorAnswerChat();
-    } else {
-      randomMessage = operatorChat();
+    randomMessage = getRandomResponse(message);
+
+    // Keep calling message generator until find one
+    while (!randomMessage) {
+      randomMessage = getRandomResponse(message);
+      if (randomMessage) {
+        break;
+      }
     }
 
     let tempChatItems = [...chatItems];
@@ -59,6 +60,18 @@ const Card = () => {
     setHoldBotReply(false);
     setChatItems(tempChatItems);
     setIsTyping(false);
+  };
+
+  const getRandomResponse = (message) => {
+    let randomMessage;
+    if (message.indexOf("hello") !== -1 || message.indexOf("hi") !== -1) {
+      randomMessage = operatorGreetingChat();
+    } else if (message.indexOf("?") !== -1) {
+      randomMessage = operatorAnswerChat();
+    } else {
+      randomMessage = operatorChat();
+    }
+    return randomMessage;
   };
 
   const messageInstance = (message, sender) => {
@@ -73,6 +86,7 @@ const Card = () => {
   return (
     <div className={`card ${isChatOpen && "toggle"}`}>
       <CardHeader
+        isCollapsed={isChatOpen}
         chatLength={chatItems.length}
         toggleChat={() => setIsChatOpen(!isChatOpen)}
       />
