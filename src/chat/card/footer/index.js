@@ -24,6 +24,7 @@ const CardFooter = ({ onSubmit }) => {
         <div className="input-group">
           <input
             name=""
+            data-testid="message-input"
             value={message}
             className="form-control type_msg msg_height"
             placeholder="Enter your message..."
@@ -32,9 +33,10 @@ const CardFooter = ({ onSubmit }) => {
           />
           <div className="input-group-append">
             <span
+              data-testid="message-submit"
               className="input-group-text send_btn msg_height"
               onClick={() => {
-                onSubmit(message);
+                onSubmit && onSubmit(message);
                 setMessage("");
               }}
             >
