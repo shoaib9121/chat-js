@@ -1,4 +1,5 @@
 import { useState } from "react";
+import DOMPurify from "dompurify";
 import "./style.scss";
 
 const CardFooter = ({ onSubmit }) => {
@@ -7,7 +8,7 @@ const CardFooter = ({ onSubmit }) => {
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       setMessage(e.target.value);
-      onSubmit(message);
+      onSubmit && onSubmit(DOMPurify.sanitize(message));
       setMessage("");
     }
   };

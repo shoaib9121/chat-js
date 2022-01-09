@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import CardHeader from "./header";
 import CardBody from "./body";
 import CardFooter from "./footer";
-import { fetchChatHistory } from "../../service";
+import { fetchChatHistory } from "../../services";
 import {
   senderEnums,
   operatorGreetingChat,

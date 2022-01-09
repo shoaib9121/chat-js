@@ -1,5 +1,6 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import { act } from "react-dom/test-utils";
+import ReactDOM from "react-dom";
 import CardBody from "./index";
 
 test("renders CardBody without errors", async () => {
@@ -9,8 +10,20 @@ test("renders CardBody without errors", async () => {
   });
 });
 
+let container;
+beforeEach(() => {
+  container = document.createElement("div");
+  document.body.appendChild(container);
+});
+
+afterEach(() => {
+  document.body.removeChild(container);
+  container = null;
+});
 test("CardBody scrollTop should match CardBody height", async () => {
-  await act(async () => render(<CardBody />));
+  act(() => {
+    ReactDOM.render(<CardBody />, container);
+  });
   await waitFor(() => {
     expect(screen.getByTestId("card-body").scrollTop).toEqual(
       screen.getByTestId("card-body").scrollHeight

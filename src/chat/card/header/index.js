@@ -12,7 +12,7 @@ const CardHeader = ({ chatLength, toggleChat }) => {
           <span className="online_icon"></span>
         </div>
         <div className="user_info">
-          <span>Chat with PowerFront</span>
+          <span data-testid="header-title">Chat with PowerFront</span>
           <p>{chatLength} Messages</p>
         </div>
       </div>

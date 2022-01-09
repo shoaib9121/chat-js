@@ -37,6 +37,7 @@
     ]
   },
   "devDependencies": {
+    "dompurify": "^2.3.4",
     "jest": "^27.4.7",
     "sass": "^1.46.0"
   }
