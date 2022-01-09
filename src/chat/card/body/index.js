@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { timeAgo, senderEnums, createMarkup } from "../../../utils";
 import "./style.scss";
 
-const CardBody = ({ chatItems = [], isTyping = false }) => {
+const CardBody = ({ chatItems = [], isTyping = false, isChatCollapsed }) => {
   const renderChatMessage = (item = {}) => {
     return item?.from && item.from === senderEnums.VISITOR
       ? renderUserMessage(item)
@@ -49,7 +49,10 @@ const CardBody = ({ chatItems = [], isTyping = false }) => {
   };
 
   return (
-    <div className="card-body msg_card_body" data-testid="card-body">
+    <div
+      className={`card-body msg_card_body ${isChatCollapsed && "fade"}`}
+      data-testid="card-body"
+    >
       {chatItems.length > 0 &&
         chatItems.map((item, index) => {
           return <div key={index}> {renderChatMessage(item)} </div>;

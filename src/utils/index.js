@@ -87,3 +87,12 @@ export const timeAgo = (dateString) => {
 export const createMarkup = (message) => {
   return { __html: message };
 };
+
+export const messageInstance = (message, sender) => {
+  const d = new Date();
+  return {
+    message,
+    datetime: new Date(d.setTime(d.getTime() + 4000)).toISOString(),
+    from: sender,
+  };
+};

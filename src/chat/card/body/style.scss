@@ -3,7 +3,12 @@
   flex: 1 1 auto;
   padding: 1.25rem 1.25rem 2.45rem;
   position: relative;
+  transition: 1s;
+  opacity: 1;
 
+  &.fade {
+    opacity: 0;
+  }
   &.msg_card_body {
     overflow-y: auto;
   }

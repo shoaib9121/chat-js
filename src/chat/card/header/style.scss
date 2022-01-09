@@ -35,4 +35,21 @@
       background: rgb(0 0 0 / 15%);
     }
   }
+
+  .notification {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    background: #cc1115;
+    border-radius: 50%;
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    right: 70px;
+    top: -14px;
+    border: 1px solid;
+  }
 }

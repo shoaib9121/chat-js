@@ -5,11 +5,15 @@
   width: 450px;
   border-radius: 15px 15px 0 0;
   background-color: rgba(0, 0, 0, 0.4) !important;
-  transition: 2.5;
+  transition: 1s;
   transform: translateY(0%);
 
   &.toggle {
     transform: translateY(87%);
+  }
+
+  @media (max-width: 767px) {
+    width: auto;
   }
 }
 

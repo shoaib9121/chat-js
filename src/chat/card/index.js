@@ -8,21 +8,35 @@ import {
   operatorGreetingChat,
   operatorAnswerChat,
   operatorChat,
+  messageInstance,
 } from "../../utils";
 import "./style.scss";
 
-const Card = () => {
+const Card = ({ externalMessages = [], handleMessagesRead }) => {
   const [chatItems, setChatItems] = useState([]);
   const [message, setMessage] = useState([]);
   const [holdBotReply, setHoldBotReply] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
-  const [isChatOpen, setIsChatOpen] = useState(false);
+  const [isChatCollapsed, setIsChatCollapsed] = useState(true);
   const delay = 2000;
 
   useEffect(async () => {
-    const resp = await fetchChatHistory();
-    setChatItems(resp);
+    const data = await fetchChatHistory();
+    if (externalMessages.length) {
+      const mergedData = [...data, ...externalMessages];
+      setChatItems(mergedData);
+    } else {
+      setChatItems(data);
+    }
   }, []);
+
+  useEffect(async () => {
+    if (externalMessages.length) {
+      const mergedData = [...chatItems, ...externalMessages];
+      setChatItems(mergedData);
+      !isChatCollapsed && handleMessagesRead();
+    }
+  }, [externalMessages]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -74,23 +88,22 @@ const Card = () => {
     return randomMessage;
   };
 
-  const messageInstance = (message, sender) => {
-    const d = new Date();
-    return {
-      message,
-      datetime: new Date(d.setTime(d.getTime() + 4000)).toISOString(),
-      from: sender,
-    };
-  };
-
   return (
-    <div className={`card ${isChatOpen && "toggle"}`}>
+    <div className={`card ${isChatCollapsed && "toggle"}`}>
       <CardHeader
-        isCollapsed={isChatOpen}
+        isCollapsed={isChatCollapsed}
         chatLength={chatItems.length}
-        toggleChat={() => setIsChatOpen(!isChatOpen)}
+        externalMessages={externalMessages}
+        toggleChat={() => {
+          setIsChatCollapsed(!isChatCollapsed);
+          handleMessagesRead && handleMessagesRead();
+        }}
       />
-      <CardBody chatItems={chatItems} isTyping={isTyping} />
+      <CardBody
+        chatItems={chatItems}
+        isTyping={isTyping}
+        isChatCollapsed={isChatCollapsed}
+      />
       <CardFooter onSubmit={handleOnSubmit} />
     </div>
   );
