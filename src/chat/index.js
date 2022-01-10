@@ -8,7 +8,7 @@ const Chat = () => {
   const handleExternalMessages = () => {
     const tempArr = [...messages];
     tempArr.push(
-      messageInstance("Message from outside world", senderEnums.OPERATOR)
+      messageInstance("New message from outside world", senderEnums.OPERATOR)
     );
     setMessages(tempArr);
   };
@@ -16,6 +16,7 @@ const Chat = () => {
   return (
     <div className="chat">
       <h1>Chat with PowerFront</h1>
+      <p>Press button below to drop message in chat box</p>
       <button onClick={handleExternalMessages}>External Message</button>
       <div className="cardWrapper">
         <Card

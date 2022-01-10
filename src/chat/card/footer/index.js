@@ -1,5 +1,6 @@
 import { useState } from "react";
 import DOMPurify from "dompurify";
+import { replaceCarriageReturn } from "../../../utils";
 import "./style.scss";
 
 const CardFooter = ({ onSubmit }) => {
@@ -9,11 +10,11 @@ const CardFooter = ({ onSubmit }) => {
     let value = e.target.value;
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
+      value = replaceCarriageReturn(value);
       setMessage(value);
-      if (value.indexOf("\n") !== -1) {
-        value = value.replaceAll(/\n/g, "<br/>");
+      if (!DOMPurify.sanitize(value).length) {
+        return;
       }
-      setMessage(value);
       onSubmit && onSubmit(DOMPurify.sanitize(value));
       setMessage("");
       return false;
@@ -44,7 +45,11 @@ const CardFooter = ({ onSubmit }) => {
               data-testid="message-submit"
               className="input-group-text send_btn msg_height"
               onClick={() => {
-                onSubmit && onSubmit(message);
+                if (!DOMPurify.sanitize(message).length) {
+                  return;
+                }
+                onSubmit &&
+                  onSubmit(DOMPurify.sanitize(replaceCarriageReturn(message)));
                 setMessage("");
               }}
             >

@@ -5,7 +5,7 @@
   width: 450px;
   border-radius: 15px 15px 0 0;
   background-color: rgba(0, 0, 0, 0.4) !important;
-  transition: 1s;
+  transition: 0.5s;
   transform: translateY(0%);
 
   &.toggle {
@@ -21,6 +21,8 @@
   margin-top: auto;
   margin-bottom: auto;
   margin-left: 15px;
+  text-align: left;
+
   span {
     font-size: 16px;
     color: white;

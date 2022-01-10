@@ -15,6 +15,7 @@ import "./style.scss";
 const Card = ({ externalMessages = [], handleMessagesRead }) => {
   const [chatItems, setChatItems] = useState([]);
   const [message, setMessage] = useState([]);
+  const [unreadMessageCount, setUnreadMessageCount] = useState(0);
   const [holdBotReply, setHoldBotReply] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
   const [isChatCollapsed, setIsChatCollapsed] = useState(true);
@@ -32,9 +33,10 @@ const Card = ({ externalMessages = [], handleMessagesRead }) => {
 
   useEffect(async () => {
     if (externalMessages.length) {
+      setUnreadMessageCount(unreadMessageCount + 1);
       const mergedData = [...chatItems, ...externalMessages];
       setChatItems(mergedData);
-      !isChatCollapsed && handleMessagesRead();
+      handleMessagesRead();
     }
   }, [externalMessages]);
 
@@ -93,10 +95,11 @@ const Card = ({ externalMessages = [], handleMessagesRead }) => {
       <CardHeader
         isCollapsed={isChatCollapsed}
         chatLength={chatItems.length}
-        externalMessages={externalMessages}
+        unreadMessageCount={unreadMessageCount}
         toggleChat={() => {
           setIsChatCollapsed(!isChatCollapsed);
           handleMessagesRead && handleMessagesRead();
+          setUnreadMessageCount(0);
         }}
       />
       <CardBody

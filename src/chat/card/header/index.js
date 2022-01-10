@@ -5,10 +5,15 @@ const CardHeader = ({
   isCollapsed,
   chatLength,
   toggleChat,
-  externalMessages = [],
+  unreadMessageCount,
 }) => {
   return (
-    <div className="card-header msg_head" onClick={toggleChat}>
+    <div
+      className={`card-header msg_head ${
+        isCollapsed && unreadMessageCount > 0 && "highlight"
+      }`}
+      onClick={toggleChat}
+    >
       <div className="d-flex bd-highlight">
         <div className="img_cont">
           <img
@@ -20,8 +25,8 @@ const CardHeader = ({
         <div className="user_info">
           <div>
             <span data-testid="header-title">Chat</span>
-            {isCollapsed && externalMessages.length > 0 && (
-              <span className="notification">{externalMessages.length}</span>
+            {isCollapsed && unreadMessageCount > 0 && (
+              <span className="notification">{unreadMessageCount}</span>
             )}
             <span className="toggle_icon">
               {isCollapsed ? <FaChevronUp /> : <FaChevronDown />}

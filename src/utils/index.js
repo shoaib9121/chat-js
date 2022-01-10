@@ -96,3 +96,14 @@ export const messageInstance = (message, sender) => {
     from: sender,
   };
 };
+
+/**
+ * Replace \n with <br/> tag to maintain carriage return pressed by end user
+ * @param message
+ * @returns
+ */
+export const replaceCarriageReturn = (message = "") => {
+  return message.indexOf("\n") !== -1
+    ? message.replaceAll(/\n/g, "<br/>")
+    : message;
+};
