@@ -7,17 +7,19 @@ messages i.e. Greetings, Responses, and Answers
 ## What's covered inside
 
 - A chat box can be toggled by pressing either on chat header or on chevron icon up/down
+- An interactive UI is setup with a bit of animation(s)
+- Chat box is sticky to bottom of the page
 - History messages are preloaded through mock prefetch
 - Message Timestamp is displayed in readable format
 - A total Message count be seen in chat header
+- When a user inputs a message, small 3 small animated dots can be seen representing if the bot is typing something
 - If user wants to insert line breaks through Shift+Enter keys then line breaks are also catered in the UI chat message
 - A message can be sent both by pressing Enter key or hitting the Send button
 - When a new message is pushed into the history then chatbox adjusts its scroll height position until a newly added message can be displayed in the viewport
-- When a user inputs a message, a small animation can be seen(with 3 circular dots) as if the bot is typing something
-- If a message is sent outside the chat box then a red chat header can be seen alongwith unread number of messages count only in case if the chat box is collapsed/not opened
+- If a message is sent from outside the chat box then a red chat header can be seen alongwith unread number of messages count only in case if the chat box is collapsed/not opened
 - XSS protection on user input i.e. it filters out any unwanted script or vulnerable attacks
-- Basic Unit Testing is covered through Jest UI responsiveness is also covered as per the need
-- Last but not least an interactive UI and a bit of animation(s)
+- UI responsiveness is also covered as per the need
+- Basic Unit Testing is covered through Jest
 
 ## Tech-stack used
 

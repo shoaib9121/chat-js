@@ -29,6 +29,8 @@ const Chat = () => {
             replies with a random response based on 3 different types of
             messages i.e. Greetings, Responses, and Answers
           </li>
+          <li>An interactive UI is setup with a bit of animation(s)</li>
+          <li>Chat box is sticky to bottom of the page</li>
           <li>
             A chat box can be toggled by pressing either on chat header or on
             chevron icon up/down
@@ -37,8 +39,8 @@ const Chat = () => {
           <li>Message Timestamp is displayed in readable format</li>
           <li>A total Message count be seen in chat header</li>
           <li>
-            When a user inputs a message, a small animation can be seen(with 3
-            circular dots) as if the bot is typing something
+            When a user inputs a message, small 3 small animated dots can be
+            seen representing if the bot is typing something
           </li>
           <li>
             If user wants to insert line breaks through Shift+Enter keys then
@@ -62,12 +64,8 @@ const Chat = () => {
             XSS protection on user input i.e. it filters out any unwanted script
             or vulnerable attacks
           </li>
+          <li>UI responsiveness is also covered</li>
           <li>Basic Unit Testing is covered through Jest</li>
-          <li>Chat box is sticky to bottom of the page</li>
-          <li>UI responsiveness is also covered as per the need</li>
-          <li>
-            Last but not least an interactive UI and a bit of animation(s)
-          </li>
         </ul>
         <h3>Tech-stack used</h3>
         <ul>
