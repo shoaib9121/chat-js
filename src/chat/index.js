@@ -63,6 +63,7 @@ const Chat = () => {
             or vulnerable attacks
           </li>
           <li>Basic Unit Testing is covered through Jest</li>
+          <li>Chat box is sticky to bottom of the page</li>
           <li>UI responsiveness is also covered as per the need</li>
           <li>
             Last but not least an interactive UI and a bit of animation(s)
