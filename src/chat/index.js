@@ -37,6 +37,10 @@ const Chat = () => {
           <li>Message Timestamp is displayed in readable format</li>
           <li>A total Message count be seen in chat header</li>
           <li>
+            When a user inputs a message, a small animation can be seen(with 3
+            circular dots) as if the bot is typing something
+          </li>
+          <li>
             If user wants to insert line breaks through Shift+Enter keys then
             line breaks are also catered in the UI chat message
           </li>
@@ -50,13 +54,9 @@ const Chat = () => {
             displayed in the viewport
           </li>
           <li>
-            When a user inputs a message, a small animation can be seen(with 3
-            circular dots) as if the bot is typing something
-          </li>
-          <li>
-            If a message is sent outside the chat box then a red chat header can
-            be seen alongwith unread number of messages count only in case if
-            the chat box is collapsed/not opened
+            If a message is sent from outside the chat box then a red chat
+            header can be seen alongwith unread number of messages count only in
+            case if the chat box is collapsed/not opened
           </li>
           <li>
             XSS protection on user input i.e. it filters out any unwanted script
@@ -71,7 +71,10 @@ const Chat = () => {
         </ul>
         <h3>Tech-stack used</h3>
         <ul>
-          <li>React, Javascript, Jest, HTML, and CSS/SCSS</li>
+          <li>
+            React, Javascript, Jest, HTML, CSS/SCSS, XSS prtoection with
+            Dompurify
+          </li>
         </ul>
       </div>
 
