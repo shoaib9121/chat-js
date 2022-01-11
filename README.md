@@ -29,6 +29,10 @@ messages i.e. Greetings, Responses, and Answers
 
 In the project directory, you can run:
 
+### `npm install`
+
+Do this only first time
+
 ### `npm start`
 
 Runs the app in the development mode.\
