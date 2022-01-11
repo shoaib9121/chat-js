@@ -1,6 +1,6 @@
-# A basic Chat App with Bot
+# Chat with Bot
 
-A basic chat workflow where an end-user submits a message and a bot
+A basic chat app where an end-user submits a message and a bot
 replies with a random response based on 3 different types of
 messages i.e. Greetings, Responses, and Answers
 
