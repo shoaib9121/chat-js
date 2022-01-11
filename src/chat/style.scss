@@ -1,33 +1,57 @@
 .chat {
-  text-align: center;
+  padding: 0 20px;
 
-  h1 {
+  .pageHeader {
     text-align: center;
-    color: white;
-    text-shadow: 1px 1px #3e3e3e;
-    font-size: 40px;
-  }
-  > p {
-    font-size: 20px;
-  }
-  > button {
-    font-size: 18px;
-    border: none;
-    padding: 15px 20px;
-    border-radius: 5px;
-    background: #005cab;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
+    h1 {
+      text-align: center;
+      color: white;
+      font-size: 40px;
+      color: #3c3c3c;
 
-    &:hover {
-      opacity: 0.95;
+      @media (max-width: 767px) {
+        font-size: 30px;
+      }
+    }
+    > p {
+      font-size: 20px;
+    }
+    > button {
+      font-size: 18px;
+      border: none;
+      padding: 15px 20px;
+      border-radius: 5px;
+      background: #005cab;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.95;
+      }
     }
   }
+  .pageBody {
+    text-align: left;
 
+    ul {
+      padding: 0 20px 20px;
+      li {
+        line-height: 1.5;
+      }
+    }
+    @media (max-width: 767px) {
+      margin-bottom: 50px;
+    }
+  }
   .cardWrapper {
     position: fixed;
     bottom: 0;
     right: 20px;
+
+    @media (max-width: 767px) {
+      right: 10px;
+      left: 10px;
+    }
   }
 }

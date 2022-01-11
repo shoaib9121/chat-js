@@ -8,7 +8,5 @@ test("renders CardHeader without errors", () => {
 
 test("CardHeader should have title", () => {
   render(<CardHeader />);
-  expect(screen.getByTestId("header-title").innerHTML).toMatch(
-    "Chat with PowerFront"
-  );
+  expect(screen.getByTestId("header-title").innerHTML).toMatch("Chat");
 });

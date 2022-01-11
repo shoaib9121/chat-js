@@ -15,9 +15,65 @@ const Chat = () => {
 
   return (
     <div className="chat">
-      <h1>Chat with PowerFront</h1>
-      <p>Press button below to drop message in chat box</p>
-      <button onClick={handleExternalMessages}>External Message</button>
+      <div className="pageHeader">
+        <h1>Chat with PowerFront</h1>
+        <p>Press button below to drop message in chat box</p>
+        <button onClick={handleExternalMessages}>External Message</button>
+      </div>
+
+      <div className="pageBody">
+        <h3>What's covered inside</h3>
+        <ul>
+          <li>
+            A basic chat workflow where an end-user submits a message and a bot
+            replies with a random response based on 3 different types of
+            messages i.e. Greetings, Responses, and Answers
+          </li>
+          <li>
+            A chat box can be toggled by pressing either on chat header or on
+            chevron icon up/down
+          </li>
+          <li>History messages are preloaded through mock prefetch</li>
+          <li>Message Timestamp is displayed in readable format</li>
+          <li>A total Message count be seen in chat header</li>
+          <li>
+            If user wants to insert line breaks through Shift+Enter keys then
+            line breaks are also catered in the UI chat message
+          </li>
+          <li>
+            A message can be sent both by pressing Enter key or hitting the Send
+            button
+          </li>
+          <li>
+            When a new message is pushed into the history then chatbox adjusts
+            its scroll height position until a newly added message can be
+            displayed in the viewport
+          </li>
+          <li>
+            When a user inputs a message, a small animation can be seen(with 3
+            circular dots) as if the bot is typing something
+          </li>
+          <li>
+            If a message is sent outside the chat box then a red chat header can
+            be seen alongwith unread number of messages count only in case if
+            the chat box is collapsed/not opened
+          </li>
+          <li>
+            XSS protection on user input i.e. it filters out any unwanted script
+            or vulnerable attacks
+          </li>
+          <li>Basic Unit Testing is covered through Jest</li>
+          <li>UI responsiveness is also covered as per the need</li>
+          <li>
+            Last but not least an interactive UI and a bit of animation(s)
+          </li>
+        </ul>
+        <h3>Tech-stack used</h3>
+        <ul>
+          <li>React, Javascript, Jest, HTML, and CSS/SCSS</li>
+        </ul>
+      </div>
+
       <div className="cardWrapper">
         <Card
           externalMessages={messages}
