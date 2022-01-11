@@ -12,7 +12,7 @@ messages i.e. Greetings, Responses, and Answers
 - History messages are preloaded through mock prefetch
 - Message Timestamp is displayed in readable format
 - A total Message count be seen in chat header
-- When a user inputs a message, small 3 small animated dots can be seen representing if the bot is typing something
+- When a user inputs a message, 3 small animated dots can be seen representing if the bot is typing something
 - If user wants to insert line breaks through Shift+Enter keys then line breaks are also catered in the UI chat message
 - A message can be sent both by pressing Enter key or hitting the Send button
 - When a new message is pushed into the history then chatbox adjusts its scroll height position until a newly added message can be displayed in the viewport

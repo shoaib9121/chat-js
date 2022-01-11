@@ -39,8 +39,8 @@ const Chat = () => {
           <li>Message Timestamp is displayed in readable format</li>
           <li>A total Message count be seen in chat header</li>
           <li>
-            When a user inputs a message, small 3 small animated dots can be
-            seen representing if the bot is typing something
+            When a user inputs a message, 3 small animated dots can be seen
+            representing if the bot is typing something
           </li>
           <li>
             If user wants to insert line breaks through Shift+Enter keys then
