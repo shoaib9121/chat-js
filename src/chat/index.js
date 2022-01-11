@@ -16,8 +16,8 @@ const Chat = () => {
   return (
     <div className="chat">
       <div className="pageHeader">
-        <h1>Chat with PowerFront</h1>
-        <p>Press button below to drop message in chat box</p>
+        <h1>Chat with Bot</h1>
+        <p>Press button below to drop a message in chat box</p>
         <button onClick={handleExternalMessages}>External Message</button>
       </div>
 
